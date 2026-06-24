@@ -118,16 +118,55 @@ section{
     font-weight:700;
 }
 
-footer{
-    text-align:center;
-    padding:25px;
-    background:#003d80;
-    color:white;
-}
+    .contact-form{
+        margin:30px auto 0;
+        max-width:600px;
+        display:grid;
+        gap:15px;
+        text-align:left;
+    }
 
-@media(max-width:768px){
-    .about{
-        grid-template-columns:1fr;
+    .contact-form label{
+        display:flex;
+        flex-direction:column;
+        color:white;
+        font-weight:600;
+        font-size:0.95rem;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea{
+        margin-top:8px;
+        padding:12px 14px;
+        border:none;
+        border-radius:10px;
+        background:rgba(255,255,255,0.12);
+        color:white;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{
+        color:rgba(255,255,255,0.7);
+    }
+
+    .contact-form button{
+        width:min(220px,100%);
+        padding:14px 24px;
+        border:none;
+        border-radius:30px;
+        background:white;
+        color:#0056b3;
+        font-weight:700;
+        cursor:pointer;
+        transition:0.3s;
+        margin-top:5px;
+    }
+
+    .contact-form button:hover{
+        background:#dff1ff;
+    }
+
     }
 
     header h1{
@@ -190,6 +229,35 @@ footer{
         <p><strong>Phone:</strong> <a href="tel:+16189159924">(618) 915-9924</a></p>
         <p><strong>Email:</strong> <a href="mailto:eclean354@gmail.com">eclean354@gmail.com</a></p>
         <p><strong>Service Area:</strong> Community</p>
+
+        <form class="contact-form" action="#" method="post">
+            <label>
+                <span>Full Name</span>
+                <input type="text" name="name" placeholder="Your full name" required>
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+            <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" placeholder="(618) 915-9924" required>
+            </label>
+            <label>
+                <span>Service Needed</span>
+                <select name="service" required>
+                    <option value="">Choose a service</option>
+                    <option value="exterior-wash">Exterior Wash</option>
+                    <option value="full-detail">Full Detail</option>
+                    <option value="protective-shine">Protective Shine</option>
+                </select>
+            </label>
+            <label>
+                <span>Notes</span>
+                <textarea name="notes" rows="4" placeholder="Tell us what you need"></textarea>
+            </label>
+            <button type="submit">Request Booking</button>
+        </form>
     </div>
 </section>
 
