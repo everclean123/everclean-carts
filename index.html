@@ -175,20 +175,34 @@ section{
     color:rgba(255,255,255,0.7);
 }
 
-.contact-form button{
-    width:min(220px,100%);
-    padding:14px 24px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#0056b3;
-    font-weight:700;
-    cursor:pointer;
-    transition:0.3s;
-    margin-top:5px;
-}
+    .service-options{
+        border:none;
+        padding:0;
+        margin:0;
+        display:grid;
+        gap:10px;
+        color:white;
+    }
 
-.contact-form button:hover{
+    .service-options legend{
+        font-weight:600;
+        margin-bottom:8px;
+    }
+
+    .service-options label{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        background:rgba(255,255,255,0.08);
+        padding:12px 14px;
+        border-radius:10px;
+        font-weight:500;
+    }
+
+    .service-options input{
+        margin:0;
+        width:auto;
+    }
     background:#dff1ff;
 }
 
@@ -294,15 +308,12 @@ footer{
                 <span>Phone</span>
                 <input type="tel" name="phone" placeholder="(618) 915-9924" required>
             </label>
-            <label>
-                <span>Service Needed</span>
-                <select name="service" required>
-                    <option value="">Choose a service</option>
-                    <option value="exterior-wash">Exterior Wash</option>
-                    <option value="full-detail">Full Detail</option>
-                    <option value="protective-shine">Protective Shine</option>
-                </select>
-            </label>
+            <fieldset class="service-options">
+                <legend>Service Needed</legend>
+                <label><input type="checkbox" name="service" value="Exterior Wash"> Exterior Wash</label>
+                <label><input type="checkbox" name="service" value="Full Detail"> Full Detail</label>
+                <label><input type="checkbox" name="service" value="Protective Shine"> Protective Shine</label>
+            </fieldset>
             <label>
                 <span>Notes</span>
                 <textarea name="notes" rows="4" placeholder="Tell us what you need"></textarea>
@@ -325,14 +336,19 @@ document.getElementById('booking-form').addEventListener('submit', function(even
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const phone = form.phone.value.trim();
-    const service = form.service.value;
     const notes = form.notes.value.trim();
+    const services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+        .map(input => input.value);
+    if (services.length === 0) {
+        alert('Please choose at least one service.');
+        return;
+    }
     const subject = encodeURIComponent('EverClean Booking Request');
     const body = encodeURIComponent(
         'Name: ' + name + '\n' +
         'Email: ' + email + '\n' +
         'Phone: ' + phone + '\n' +
-        'Service: ' + service + '\n' +
+        'Services: ' + services.join(', ') + '\n' +
         'Notes: ' + notes
     );
     window.location.href = 'mailto:eclean354@gmail.com?subject=' + subject + '&body=' + body;
