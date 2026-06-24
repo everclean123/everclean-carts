@@ -118,55 +118,71 @@ section{
     font-weight:700;
 }
 
-    .contact-form{
-        margin:30px auto 0;
-        max-width:600px;
-        display:grid;
-        gap:15px;
-        text-align:left;
-    }
+.contact-form{
+    margin:30px auto 0;
+    max-width:600px;
+    display:grid;
+    gap:15px;
+    text-align:left;
+}
 
-    .contact-form label{
-        display:flex;
-        flex-direction:column;
-        color:white;
-        font-weight:600;
-        font-size:0.95rem;
-    }
+.contact-form label{
+    display:flex;
+    flex-direction:column;
+    color:white;
+    font-weight:600;
+    font-size:0.95rem;
+}
 
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea{
-        margin-top:8px;
-        padding:12px 14px;
-        border:none;
-        border-radius:10px;
-        background:rgba(255,255,255,0.12);
-        color:white;
-    }
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+    margin-top:8px;
+    padding:12px 14px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+}
 
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder{
-        color:rgba(255,255,255,0.7);
-    }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:rgba(255,255,255,0.7);
+}
 
-    .contact-form button{
-        width:min(220px,100%);
-        padding:14px 24px;
-        border:none;
-        border-radius:30px;
-        background:white;
-        color:#0056b3;
-        font-weight:700;
-        cursor:pointer;
-        transition:0.3s;
-        margin-top:5px;
-    }
+.contact-form button{
+    width:min(220px,100%);
+    padding:14px 24px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#0056b3;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:5px;
+}
 
-    .contact-form button:hover{
-        background:#dff1ff;
-    }
+.contact-form button:hover{
+    background:#dff1ff;
+}
 
+.form-note{
+    color:rgba(255,255,255,0.85);
+    margin-top:8px;
+    font-size:0.95rem;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#003d80;
+    color:white;
+}
+
+@media(max-width:768px){
+    .about{
+        grid-template-columns:1fr;
     }
 
     header h1{
@@ -230,7 +246,7 @@ section{
         <p><strong>Email:</strong> <a href="mailto:eclean354@gmail.com">eclean354@gmail.com</a></p>
         <p><strong>Service Area:</strong> Community</p>
 
-        <form class="contact-form" action="#" method="post">
+        <form id="booking-form" class="contact-form" action="#" method="post">
             <label>
                 <span>Full Name</span>
                 <input type="text" name="name" placeholder="Your full name" required>
@@ -257,6 +273,7 @@ section{
                 <textarea name="notes" rows="4" placeholder="Tell us what you need"></textarea>
             </label>
             <button type="submit">Request Booking</button>
+            <p class="form-note">When you submit, your email app will open with the booking request ready to send.</p>
         </form>
     </div>
 </section>
@@ -264,6 +281,27 @@ section{
 <footer>
     <p>© 2026 EverClean Golf Cart Cleaning. All Rights Reserved.</p>
 </footer>
+
+<script>
+document.getElementById('booking-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const service = form.service.value;
+    const notes = form.notes.value.trim();
+    const subject = encodeURIComponent('EverClean Booking Request');
+    const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Service: ' + service + '\n' +
+        'Notes: ' + notes
+    );
+    window.location.href = 'mailto:eclean354@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
 
 </body>
 </html>
