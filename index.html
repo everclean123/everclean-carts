@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EverClean Golf Cart Cleaning</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f9ff;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#0056b3,#00a2ff);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:white;
+    color:#0056b3;
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#dff1ff;
+}
+
+section{
+    padding:70px 10%;
+}
+
+.section-title{
+    text-align:center;
+    color:#0056b3;
+    margin-bottom:40px;
+    font-size:2rem;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card h3{
+    color:#0077cc;
+    margin-bottom:15px;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:15px;
+}
+
+.about-text h2{
+    color:#0056b3;
+    margin-bottom:20px;
+}
+
+.contact{
+    background:#0056b3;
+    color:white;
+    text-align:center;
+    border-radius:20px;
+}
+
+.contact h2{
+    margin-bottom:20px;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#003d80;
+    color:white;
+}
+
+@media(max-width:768px){
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:2.2rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>EverClean Golf Cart Cleaning</h1>
+    <p>Professional Golf Cart Washing, Detailing & Maintenance</p>
+    <a href="#contact" class="btn">Book a Cleaning</a>
+</header>
+
+<section>
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="services">
+        <div class="card">
+            <h3>Exterior Wash</h3>
+            <p>Complete cleaning to remove dirt, mud, dust, and debris.</p>
+        </div>
+
+        <div class="card">
+            <h3>Full Detail</h3>
+            <p>Deep cleaning of seats, floors, wheels, and storage areas.</p>
+        </div>
+
+        <div class="card">
+            <h3>Protective Shine</h3>
+            <p>Professional finish that keeps your cart looking new.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <img src="https://images.unsplash.com/photo-1592919505780-303950717480?w=1200"
+         alt="Golf Cart Cleaning">
+
+    <div class="about-text">
+        <h2>Why Choose EverClean?</h2>
+        <p>
+            EverClean specializes in keeping golf carts spotless, protected,
+            and ready for the course. Our attention to detail ensures every
+            cart receives a premium cleaning service.
+        </p>
+        <br>
+        <p>
+            Whether you're a golf course, community, or private owner,
+            we deliver reliable and affordable cleaning solutions.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact">
+        <h2>Contact EverClean</h2>
+        <p><strong>Phone:</strong> (555) 123-4567</p>
+        <p><strong>Email:</strong> info@evercleancarts.com</p>
+        <p><strong>Service Area:</strong> Your Local Community & Golf Courses</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 EverClean Golf Cart Cleaning. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
