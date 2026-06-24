@@ -118,6 +118,31 @@ section{
     font-weight:700;
 }
 
+.contact-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    margin:20px 0 10px;
+}
+
+.contact-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 24px;
+    border-radius:30px;
+    background:#ffffff;
+    color:#0056b3;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.contact-button:hover{
+    background:#dff1ff;
+}
+
 .contact-form{
     margin:30px auto 0;
     max-width:600px;
@@ -250,6 +275,11 @@ footer{
         <p><strong>Phone:</strong> <a href="tel:+16189159924">(618) 915-9924</a></p>
         <p><strong>Email:</strong> <a href="mailto:eclean354@gmail.com">eclean354@gmail.com</a></p>
         <p><strong>Service Area:</strong> Community</p>
+
+        <div class="contact-buttons">
+            <a class="contact-button" href="tel:+16189159924">Book by Phone</a>
+            <a class="contact-button" href="mailto:eclean354@gmail.com">Book by Email</a>
+        </div>
 
         <form id="booking-form" class="contact-form" action="#" method="post">
             <label>
